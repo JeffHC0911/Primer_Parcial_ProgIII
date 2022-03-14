@@ -1,0 +1,62 @@
+###
+POST http://localhost:3000/api/v1/compras/compra HTTP/1.1
+Content-Type: application/json
+
+{
+    "DueDate": "2022-04-18" ,
+    "DNI": "119267890",
+    "Status": "Payable",
+    "Line": {
+    {
+        "Amount": 1200,
+        "DetailType": "ExpenseDetail",
+        "ExpenseDetail": {
+            "Customer": {
+                "value": "FFDSD",
+                "name": "Lautaro Martínez",
+        "Ref": {
+                "value": "DEF321",
+                "name": "xxxxxxx"
+            }
+        },
+        "Account": {
+            "value": "EFG345",
+            "name": "Fuel"
+    },
+        "LineStatus": "Billable"
+        }
+    }
+    },
+    "Vendor": {
+        "value": "GHI456",
+        "name": "Sample Bank"
+    },
+    "TotalAmt": 4000.06
+}
+
+###
+GET http://localhost:3000/api/v1/compras HTTP/1.1
+
+###
+GET http://localhost:3000/api/v1/compras/622f94363eb1477f93fd6742 HTTP/1.1
+
+###
+GET http://localhost:3000/api/v1/compras/DEF234 HTTP/1.1
+
+###
+PUT http://localhost:3000/api/v1/compras/622f94363eb1477f93fd6742 HTTP/1.1
+Content-Type: application/json
+
+{
+    "Line": {
+        "ExpenseDetail": {
+        "Account": {
+            "value": "FGG345",
+            "name": "Fuel 2.0"
+            }
+        }
+    }
+}
+
+###
+DELETE http://localhost:3000/api/v1/compras/622f94363eb1477f93fd6742 HTTP/1.1
